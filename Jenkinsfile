@@ -3,12 +3,6 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git 'https://github.com/madagoni-bharath-kumar/calculator-app.git'
-            }
-        }
-
         stage('Build & Test') {
             steps {
                 sh 'mvn clean test'
