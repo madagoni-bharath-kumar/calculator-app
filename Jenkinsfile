@@ -1,16 +1,11 @@
 pipeline {
     agent any
 
-    tools {
-        jdk 'JDK21'
-        maven 'Maven3'
-    }
-
     stages {
 
         stage('Checkout Code') {
             steps {
-                git 'https://github.com/laxmi916/calculator-app.git'
+                git 'https://github.com/madagoni-bharath-kumar/calculator-app.git'
             }
         }
 
@@ -30,10 +25,10 @@ pipeline {
     post {
         success {
             echo 'Build and tests successful'
-            archiveArtifacts artifacts: 'target/*.jar', fingerprint: true
+            archiveArtifacts artifacts: 'target/*.jar'
         }
         failure {
-            echo 'Build failed due to test or compilation error'
+            echo 'Build failed'
         }
     }
 }
